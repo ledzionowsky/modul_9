@@ -19,7 +19,7 @@ a_file.close()
 
 @app.route('/formularz', methods=['GET' , 'POST'])
 def formularz():
-    return render_template("formularz.html")
+    return render_template("formularz.html", rate=rates)
 
 
 

@@ -5,14 +5,14 @@
     <title>Kalkulator</title>
 </head>
 <body>
-    <form method="post" action="data">
-        <label for="waluty">Wybierz walutę: </label>
-
+    <form method="post" action="{{ url_for('formularz') }}" >
+        <label for="waluty">Wybierz walutę którą chcesz wymienić: </label>
         <select name="waluty" id="waluty">
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
+            {% for rate_item in rate%}
+                {% for item in rate_item['code'] %}
+                    <option >{{ item }}</option>
+                {% endfor %}
+            {% endfor %}
         </select>
     </form>
 </body>
