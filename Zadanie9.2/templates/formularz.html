@@ -8,12 +8,16 @@
 
     <form method="post" action="{{ url_for('formularz') }}" >
     <div>
-        <label for="z_waluty">Wybierz walutę: </label>
-        <select name="z_waluty" id="z_waluty">
+        <label for="waluta">Wybierz walutę: </label>
+        <select name="waluta" id="waluta">
             {% for rate_item in rate%}
                     <option >{{ rate_item['code'] }}</option>
             {% endfor %}
         </select>
+    </div>
+    <div>
+        <label for="ilosc">Ile waluty chcesz kupić:</label>
+        <input type="text" id="ilosc">
     </div>
     </form>
 </body>
