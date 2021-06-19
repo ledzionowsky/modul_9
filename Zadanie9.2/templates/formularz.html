@@ -1,24 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
     <meta charset="UTF-8">
     <title>Kalkulator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-
+    <div id="conrainer">
     <form method="post" action="{{ url_for('formularz') }}" >
     <div>
         <label for="waluta">Wybierz walutę: </label>
         <select name="waluta" id="waluta">
-            {% for rate_item in rate%}
+            {% for rate_item in rate[0]%}
                     <option >{{ rate_item['code'] }}</option>
             {% endfor %}
         </select>
     </div>
     <div>
-        <label for="ilosc">Ile waluty chcesz kupić:</label>
-        <input type="text" id="ilosc">
+        <label for="liczba">Ile waluty chcesz kupić:</label>
+        <input type="number" id="liczba" name="liczba">
+    </div>
+    <div>
+        <button type="submit">Przelicz</button>
+    </div>
+    <div>
+        {{ rate[1] }}zł
     </div>
     </form>
+    </div>
 </body>
 </html>
